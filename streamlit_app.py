@@ -61,7 +61,7 @@ np.random.rand(1000, 100)
 st.info(
     "☝️ &nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce at rhoncus augue. Class aptent &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In diam dolor, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;blandit in enim pretium, volutpat hendrerit nisl. "
 )
-
+st.write("foo")
 
 console = Console(force_terminal=True, color_system="truecolor")
 
