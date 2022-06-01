@@ -4,11 +4,12 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-streamlit = "*"
-psutil = "*"
-plost = "*"
+streamlit = "==1.10.0rc2"
+seaborn = "*"
 
 [dev-packages]
+watchdog = "*"
+black = "*"
 
 [requires]
-python_version = "3.8"
+python_version = "3.9"
