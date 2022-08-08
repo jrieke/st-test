@@ -1,0 +1,17 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+streamlit = "*"
+opencv-python="==4.5.4.58"
+torch="==1.10.0"
+torchvision="==0.11.1"
+
+[dev-packages]
+watchdog = "*"
+black = "*"
+
+[requires]
+python_version = "3.9"

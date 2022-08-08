@@ -1,0 +1,15 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+streamlit = {file = "https://github.com/LukasMasuch/st-playground/releases/download/x-y-param-for-charts-0.0.1/streamlit-1.11.0-py2.py3-none-any.whl"}
+vega-datasets = "*"
+
+[dev-packages]
+watchdog = "*"
+black = "*"
+
+[requires]
+python_version = "3.9"

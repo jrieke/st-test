@@ -4,8 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-streamlit = "==1.10.0rc2"
-seaborn = "*"
+streamlit-nightly = "*"
+tornado = "==6.1"
 
 [dev-packages]
 watchdog = "*"
