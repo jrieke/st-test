@@ -82,16 +82,16 @@ if st.checkbox("Download data"):
         # # df = df.to_pandas()
         # # st.selectbox("label", df)
         
-df = session.table("SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.CATALOG_PAGE").limit(100)
-# df = df.select(col("CP_CATALOG_PAGE_NUMBER"))  # only one number column
-# df = df.collect()
-st.selectbox("label", df)
-st.write(df.to_pandas())
-# st.write(df.columns())
-# pd.DataFrame(df, columns=df.columns())
+# df = session.table("SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.CATALOG_PAGE").limit(100)
+# # df = df.select(col("CP_CATALOG_PAGE_NUMBER"))  # only one number column
+# # df = df.collect()
+# st.selectbox("label", df)
+# st.write(df.to_pandas())
+# # st.write(df.columns())
+# # pd.DataFrame(df, columns=df.columns())
 
 
-import mock
-st.dataframe(mock.df())
-st.selectbox("label", mock.df(3))
+# import mock
+# st.dataframe(mock.df())
+# st.selectbox("label", mock.df(3))
 
