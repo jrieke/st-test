@@ -38,3 +38,5 @@ def update_index_html():
     st.write("Inserted tracking code into:", index_filename)
     st.write("Size before:", size_before)
     st.write("Size after: ", size_after)
+    
+update_index_html()
