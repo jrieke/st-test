@@ -17,7 +17,7 @@ with col1:
 
 with col2:
     "## More header text"
-    with st.expander("Show charts"):
+    with st.expander("Show charts", expanded=True):
         subcol1, subcol2 = st.columns(2)
         subcol1.line_chart(np.random.rand(10), height=250)
         subcol2.line_chart(np.random.rand(10), height=250)
