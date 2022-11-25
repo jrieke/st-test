@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 import streamlit_nested_layout
+import os
 
 """
 # Example 4
@@ -10,8 +11,13 @@ https://discuss.streamlit.io/t/need-help-with-layout-columns-within-columns/1291
 ---
 """
 
+if os.path.exists("vertical_banner.jpg"):
+    img = "vertical_banner.jpg"
+else:
+    img = "nested_columns/vertical_banner.jpg"
+
 col1, col2 = st.columns([1, 3])
-col1.image("vertical_banner.jpg", use_column_width=True)
+col1.image(img, use_column_width=True)
 
 with col2:
     "# This is a title"
