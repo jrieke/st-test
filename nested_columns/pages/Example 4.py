@@ -16,7 +16,8 @@ if os.path.exists("vertical_banner.jpg"):
 else:
     img = "nested_columns/vertical_banner.jpg"
 
-col1, col2 = st.columns([1, 3])
+col1, col2 = st.columns([1, 3], gap="medium")
+col1.write("")
 col1.image(img, use_column_width=True)
 
 with col2:
