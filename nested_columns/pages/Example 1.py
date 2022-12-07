@@ -47,8 +47,10 @@ else:
     raise ValueError(f"Unexpected right_side: {right_side}")
 
 
-
-# Takeaways:
-# - Looks good
-# - Checkbox wraps weirdly but that's because there's an unnecessary padding on the right side. We should jut remove that, and then we should be good. 
-# - Padding above chart and image should be a bit increased but that's unrelated to nested columns. Map e.g. has a good top padding. 
+"""
+---
+Takeaways:
+- Looks good
+- Checkbox wraps weirdly but that's because there's an unnecessary padding on the right side. We should jut remove that, and then we should be good. 
+- Padding above chart and image should be a bit increased but that's unrelated to nested columns. Map e.g. has a good top padding. 
+"""
