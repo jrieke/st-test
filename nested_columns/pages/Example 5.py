@@ -31,7 +31,10 @@ with col2:
         subcol1.line_chart(np.random.rand(10), height=250)
         subcol2.line_chart(np.random.rand(10), height=250)
 
-# Takeaways:
-# - Looks good. Expanders thing is a bit weird but OK. 
-# - Especially like it with gap="medium" here! I think gap makes nested columns look so 
-#   much better in many situations because you get more visual separation. 
+"""
+---
+Takeaways:
+- Looks good. Expanders thing is a bit weird but OK. 
+- Especially like it with gap="medium" here! I think gap makes nested columns look so 
+  much better in many situations because you get more visual separation. 
+"""
