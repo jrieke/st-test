@@ -68,13 +68,15 @@ with main_area:
             use_column_width=True,
         )
 
-
-# Takeaways
-# - Yeah, this is way too complex for a Streamlit app.
-# - Side note: dataframe doesn't resize if sidebar is collapsed, we should fix that (with use_container_width=True).
-# - It also looks weird on small screen sizes. Because there are so many columns,
-#   they naturally become very small. So if you make the window small, they become tiny,
-#   which makes things look weird. E.g the text in the top left gets stretched out vertically way too much.
-#   And the images on the right side don't have the same height as the rest of the content any more.
-# - On mobile it's OK actually since everything is just below each other. The toolbar on the
-#   left looks weird but OK, can't really change that much.
+"""
+---
+Takeaways
+- Yeah, this is way too complex for a Streamlit app.
+- Side note: dataframe doesn't resize if sidebar is collapsed, we should fix that (with use_container_width=True).
+- It also looks weird on small screen sizes. Because there are so many columns,
+  they naturally become very small. So if you make the window small, they become tiny,
+  which makes things look weird. E.g the text in the top left gets stretched out vertically way too much.
+  And the images on the right side don't have the same height as the rest of the content any more.
+- On mobile it's OK actually since everything is just below each other. The toolbar on the
+  left looks weird but OK, can't really change that much.
+"""
