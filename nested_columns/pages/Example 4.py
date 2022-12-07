@@ -32,6 +32,7 @@ with col2:
 
 
 """
+---
 Takeaways:
 - Looks good
 - "Choose an option" in multiselect is moved to the next line if it's too small. We 
