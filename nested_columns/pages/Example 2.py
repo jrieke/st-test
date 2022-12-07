@@ -35,16 +35,19 @@ with col2:
     st.write("")
     st.bar_chart(np.random.rand(100))
 
-# Takeaways:
-# - It looks OK but this was probably not a good idea in the first place :D
-# - The "Save" button is not aligned with the metric. Again, this is the problem that
-#   text elements have some "padding" due to the line height, while the button doesn't 
-#   have any padding. Not sure how we'd solve that. st.space is one option but you'd 
-#   really move pixels around then. 
-# - On small screens, the metric gets cut off. That's not the intended behavior 
-#   specced out originally. It should ellipsize. Need to fix. 
-# - Horizontal container would probably be the better solution here, then the metric 
-#   could simply take the space it needs. 
-# - st.metric doesn't have label_visibility. That's a bug, we need to add it. 
-# - Anyway, all of this isn't a blocker for nested columns IMO. Just a) this isn't a 
-#   perfect use case and b) other stuff we should fix. 
+"""
+---
+Takeaways:
+- It looks OK but this was probably not a good idea in the first place :D
+- The "Save" button is not aligned with the metric. Again, this is the problem that
+  text elements have some "padding" due to the line height, while the button doesn't 
+  have any padding. Not sure how we'd solve that. st.space is one option but you'd 
+  really move pixels around then. 
+- On small screens, the metric gets cut off. That's not the intended behavior 
+  specced out originally. It should ellipsize. Need to fix. 
+- Horizontal container would probably be the better solution here, then the metric 
+  could simply take the space it needs. 
+- st.metric doesn't have label_visibility. That's a bug, we need to add it. 
+- Anyway, all of this isn't a blocker for nested columns IMO. Just a) this isn't a 
+  perfect use case and b) other stuff we should fix. 
+"""
