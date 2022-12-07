@@ -31,7 +31,9 @@ with col2:
     st.dataframe(np.random.rand(10, 10), use_container_width=True)
 
 
-# Takeaways:
-# - Looks good
-# - "Choose an option" in multiselect is moved to the next line if it's too small. We 
-#   should fix that. 
+"""
+Takeaways:
+- Looks good
+- "Choose an option" in multiselect is moved to the next line if it's too small. We 
+  should fix that. 
+"""
