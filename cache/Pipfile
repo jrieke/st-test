@@ -1,0 +1,24 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+streamlit-nightly = "*"
+transformers = "*"
+torch = "*"
+torchvision = "*"
+torchaudio = "*"
+matplotlib = "*"
+plotly = "*"
+bokeh = "*"
+altair = "*"
+vega-datasets = "*"
+graphviz = "*"
+
+[dev-packages]
+watchdog = "*"
+black = "*"
+
+[requires]
+python_version = "3.9"

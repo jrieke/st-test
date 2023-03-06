@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>My first three.js app</title>
+    <style>
+        body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Install three.js from CDN, see https://threejs.org/docs/index.html#manual/en/introduction/Installation -->
+    <script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
+    
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.143.0/build/three.module.js"
+        }
+      }
+    </script>
+    
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'https://unpkg.com/three@0.143.0/examples/jsm/controls/OrbitControls.js';
+        import { OBJLoader } from 'https://unpkg.com/three@0.143.0/examples/jsm/loaders/OBJLoader.js';
+
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xffffff);
+
+        const camera = new THREE.PerspectiveCamera(
+            45,
+            window.innerWidth / window.innerHeight,
+            1,
+            2000
+        );
+        camera.position.set(0, 0, 200);
+
+
+        const controls = new OrbitControls(camera, renderer.domElement);
+
+        //controls.update() must be called after any manual changes to the camera's transform
+        //camera.position.set(0, 20, 100);
+
+        const geometry = new THREE.BoxGeometry(1, 1, 1);
+        const material_cube = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+        const cube = new THREE.Mesh(geometry, material_cube);
+        //scene.add(cube);
+
+
+        const material = new THREE.MeshBasicMaterial({ color: 0xaaaaaa });
+        const loader = new OBJLoader();
+        loader.load(
+            // resource URL
+            "https://huggingface.co/spaces/dawood/Model3D/raw/main/files/face.obj",
+            //"https://huggingface.co/spaces/dawood/Model3D/raw/main/files/Bunny.obj",
+            //'https://raw.githubusercontent.com/sohamkamani/three-object-loader/master/source/sample.obj',
+            // called when resource is loaded
+            function (object) {
+
+                object.traverse(function (child) {
+
+                    if (child instanceof THREE.Mesh) {
+                        child.material = material;
+                        child.geometry.center();
+
+                    }
+                });
+
+                //object.geometry.center();
+                scene.add(object);
+                console.log("added!!");
+
+            },
+            // called when loading is in progresses
+            function (xhr) {
+
+                console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+
+            },
+            // called when loading has errors
+            function (error) {
+
+                console.log('An error happened');
+
+            }
+        );
+
+        
+        function animate() {
+            requestAnimationFrame(animate);
+            //cube.rotation.x += 0.01;
+            //cube.rotation.y += 0.01;
+            //camera.lookAt(scene.position);
+            renderer.render(scene, camera);
+        }
+        animate();
+
+
+
+        
+</script>
+</body>
+
+</html>

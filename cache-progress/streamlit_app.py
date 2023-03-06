@@ -2,8 +2,27 @@ import time
 
 import streamlit as st
 
+st.title("Title")
+st.write("Some text bla bla blub")
+
+"""
+# Title
+Some text bla bla blub
+"""
+
+
+st.header("Header")
+st.write("Some text bla bla blub")
+
+"""
+## Header
+Some text bla bla blub
+"""
+
+
 if "last_cache_duration" not in st.session_state:
     st.session_state["last_cache_duration"] = 5
+
 
 @st.cache
 def square(n):
