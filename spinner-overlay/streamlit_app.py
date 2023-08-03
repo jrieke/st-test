@@ -61,23 +61,22 @@ def spin_it(mock_func_name):
     # else:
     #     time.sleep(function_time)
         
-content = st.container()
-if st.sidebar.button("🗑️ Clear content"):
-    content.empty()
-else:
-    with content:
-        "Here is some text:"
-        spin_it("loading_text_data")
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+# content = st.container()
+# if st.sidebar.button("🗑️ Clear content"):
+#     content.empty()
+# with content:
+"Here is some text:"
+spin_it("loading_text_data")
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 
-        "Here is a dataframe:"
-        spin_it("loading_dataframe_data")
-        df = pd.DataFrame(np.random.randn(50, 20), columns=("col %d" % i for i in range(20)))
-        st.dataframe(df)  # Same as st.write(df)
+"Here is a dataframe:"
+spin_it("loading_dataframe_data")
+df = pd.DataFrame(np.random.randn(50, 20), columns=("col %d" % i for i in range(20)))
+st.dataframe(df)  # Same as st.write(df)
 
-        "Here is a chart:"
-        spin_it("loading_chart_data")
-        st.bar_chart(df)
+"Here is a chart:"
+spin_it("loading_chart_data")
+st.bar_chart(df)
 
 
 
