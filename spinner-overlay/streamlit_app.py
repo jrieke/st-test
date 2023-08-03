@@ -46,18 +46,20 @@ with st.sidebar:
             unsafe_allow_html=True,
         )
 
-    delay = st.checkbox("Show spinner after delay")
-    spinner_time = st.number_input("Delay", value=0.5, disabled=not delay)
+    show_delay = st.checkbox("Show spinner after delay")
+    delay_time = st.number_input("Delay", value=0.5, disabled=not show_delay)
+    if not show_delay:
+        delay_time = 0
     st.sidebar.button("🏃‍♀️ Rerun app")
     
 def spin_it(mock_func_name):
     # if show_spinner:
-    if function_time < spinner_time:
+    if function_time < delay_time:
         time.sleep(function_time)
     else:
-        time.sleep(spinner_time)
+        time.sleep(delay_time)
         with st.spinner(f"Running `{mock_func_name}`."):
-            time.sleep(function_time - spinner_time)
+            time.sleep(function_time - delay_time)
     # else:
     #     time.sleep(function_time)
         
