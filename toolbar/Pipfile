@@ -1,0 +1,14 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[dev-packages]
+watchdog = "*"
+black = "*"
+
+[requires]
+python_version = "3.9"
+
+[packages]
+streamlit = {path = "./streamlit-1.26.0-py2.py3-none-any.whl"}
