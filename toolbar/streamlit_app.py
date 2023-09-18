@@ -109,7 +109,7 @@ elif toolbar_position == "Right":
     
         /* Set the initial style of the toolbar while the dataframe is not hovered */
         .stDataFrame > :first-child {
-            display: none;
+            height: 0;
             opacity: 0;
             position: absolute;
             top: 0rem;
@@ -125,7 +125,7 @@ elif toolbar_position == "Right":
         /* Set the style of the toolbar when the dataframe or the toolbar is hovered */
         .stDataFrame:hover > :first-child,
         .stDataFrame > :first-child:hover {
-            display: flex;
+            height: auto;
             opacity: 1;
             right: -2rem;
             transition: opacity 0.3s, right 0.15s;
