@@ -155,6 +155,27 @@ elif toolbar_position == "Right":
         .stDataFrame:hover::before {
             pointer-events: auto;
         }
+        
+        .stButton {
+            margin-top: -25px;
+        }
+        
+        .stButton button {
+            border-color: #EAEAEB;
+            border-radius: 0 0 0.5rem 0.5rem;
+            border-top: 1px solid transparent;
+            padding-top: 0.4rem;
+            padding-bottom: 0.4rem;
+            background: 
+        }
+        
+        .stButton p {
+            font-size: 14px;
+        }
+        
+        [data-testid="stDataFrameResizable"] {
+            border-radius: 0.5rem 0.5rem 0 0 !important;
+        }
 
         
         </style>
@@ -194,5 +215,10 @@ tab1.dataframe(data, use_container_width=True)
 tab2.dataframe(data, use_container_width=True)
 tab3.dataframe(data, use_container_width=True)
 
-st.data_editor(data, num_rows="dynamic")
-st.button("+++")
+long_data = {
+    "Name": ["Alice", "Bob", "Charlie", "David", "Alice", "Bob", "Charlie", "David", "Alice", "Bob", "Charlie", "David"],
+    "Age": [25, 30, 35, 40, 25, 30, 35, 40, 25, 30, 35, 40],
+    "Occupation": ["Engineer", "Doctor", "Artist", "Teacher", "Engineer", "Doctor", "Artist", "Teacher", "Engineer", "Doctor", "Artist", "Teacher"],
+}
+st.data_editor(long_data, num_rows="dynamic", use_container_width=True)
+st.button("\- Delete row", use_container_width=True)
