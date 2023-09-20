@@ -7,10 +7,68 @@ This demo shows the dataframe toolbar in different real-world scenarios.
 """
 
 toolbar_position = st.radio(
-    "Toolbar position", ["Original prototype", "Top right", "Left", "Right"]
+    "Toolbar position", ["Hide", "Original prototype", "Hover", "Top right", "Left", "Right"]
 )
 
-if toolbar_position == "Top right":
+if toolbar_position == "Hide":
+    st.write(
+        """
+        <style>
+        [data-testid="StyledFullScreenButton"] {
+            visibility: hidden;
+        }
+    
+        .stDataFrame > :first-child {
+            display: none;
+        }
+        """,
+        unsafe_allow_html=True,
+    )
+elif toolbar_position == "Hover":
+    st.write(
+        """
+        <style>
+        [data-testid="StyledFullScreenButton"] {
+            visibility: hidden;
+        }
+        
+        .stDataFrame {
+            margin-top: 1rem;
+        }
+        
+        /* Initial styles */
+        .stDataFrame > :first-child {
+            height: 0;
+            opacity: 0;
+            top: -1.25rem;
+            right: 0rem;
+            position: absolute;
+            z-index: 1000; /* To place it above the second child */
+            overflow: hidden;
+            margin-bottom: 0;
+            transition: opacity 0.3s, top 0.15s;
+        }
+
+        /* Styles when parent div is hovered */
+        .stDataFrame:hover > :first-child,
+        .stDataFrame > :first-child:hover {
+            height: auto;
+            opacity: 1;
+            z-index: 1000;
+            top: -1.75rem;
+        }
+
+        /* Styles for the second child */
+        .stDataFrame > :nth-child(2) {
+            position: relative; /* To establish a stacking context */
+            z-index: 0; /* To place it below the first child */
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+elif toolbar_position == "Top right":
     st.write(
         """
         <style>
@@ -216,9 +274,40 @@ tab2.dataframe(data, use_container_width=True)
 tab3.dataframe(data, use_container_width=True)
 
 long_data = {
-    "Name": ["Alice", "Bob", "Charlie", "David", "Alice", "Bob", "Charlie", "David", "Alice", "Bob", "Charlie", "David"],
+    "Name": [
+        "Alice",
+        "Bob",
+        "Charlie",
+        "David",
+        "Alice",
+        "Bob",
+        "Charlie",
+        "David",
+        "Alice",
+        "Bob",
+        "Charlie",
+        "David",
+    ],
     "Age": [25, 30, 35, 40, 25, 30, 35, 40, 25, 30, 35, 40],
-    "Occupation": ["Engineer", "Doctor", "Artist", "Teacher", "Engineer", "Doctor", "Artist", "Teacher", "Engineer", "Doctor", "Artist", "Teacher"],
+    "Occupation": [
+        "Engineer",
+        "Doctor",
+        "Artist",
+        "Teacher",
+        "Engineer",
+        "Doctor",
+        "Artist",
+        "Teacher",
+        "Engineer",
+        "Doctor",
+        "Artist",
+        "Teacher",
+    ],
 }
 st.data_editor(long_data, num_rows="dynamic", use_container_width=True)
 st.button("\- Delete row", use_container_width=True)
+
+st.sidebar.dataframe(data)
+col1, col2 = st.sidebar.columns(2)
+col1.dataframe(data)
+col2.dataframe(data)
