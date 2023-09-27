@@ -9,7 +9,7 @@ css = st.container()
 with st.sidebar:
     # show_spinner = st.checkbox("Show spinner", True)
     function_time = st.number_input("Runtime of cached function", value=2.0)
-    if st.checkbox("Make spinner overlap"):
+    if st.checkbox("Make spinner overlap, using gradient"):
         css.markdown(
             """
             <style>
@@ -22,9 +22,37 @@ with st.sidebar:
                 }
                 
                 .stSpinner, .stProgress {
-                    background: linear-gradient(to bottom, white 0%, white 70%, transparent 100%);
-                    /*background-color: #ffffffbb;*/
-                    padding-bottom: 1.5rem;
+                    /* current design in the official figma */
+                    background: linear-gradient(180deg, #FFF 72%, rgba(255, 255, 255, 0.00) 100%);
+                    padding: 1rem 0;
+                    margin-top: -1rem;
+                    
+                }
+            </style>
+            """,
+            unsafe_allow_html=True,
+        )
+    if st.checkbox("Make spinner overlap, using shadow"):
+        css.markdown(
+            """
+            <style>
+                div:has(> .stSpinner), div:has(> .stProgress) {
+                    height: 0;
+                    overflow: visible;
+                    visibility: visible;
+                    margin-bottom: -1rem;
+                    z-index: 1000;
+                }
+                
+                .stSpinner, .stProgress {
+                    /* Show it similar to toolbar with shadow. Looks weird. */
+                    
+                    padding: 0.25rem 0.5rem;
+                    background-color: white;
+                    box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.08); 
+                    width: 280px !important;
+                    border-radius: 0.5rem;
+                    
                 }
             </style>
             """,
@@ -35,11 +63,11 @@ with st.sidebar:
             """
             <style>
             .stSpinner i {
-                width: 1.5rem;
-                height: 1.5rem;
+                width: 1.25rem;
+                height: 1.25rem;
             }
             .stSpinner > div {
-                gap: 0.75rem;
+                gap: 0.5rem;
             }
             </style>
             """,
